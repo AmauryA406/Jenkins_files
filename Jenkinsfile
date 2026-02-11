@@ -5,8 +5,8 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 echo 'Récuperation du code ...'
-                git branch : 'master',
-                url : "https://github.com/Linspi/Projet-DevOps.git"
+                git branch : 'main',
+                url : "https://github.com/AmauryA406/Jenkins_files"
             }
         }
         stage('Vérification de maven'){
