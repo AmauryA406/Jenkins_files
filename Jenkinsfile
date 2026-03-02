@@ -15,5 +15,24 @@ pipeline {
                 sh 'mvn --version'
             }
         }
+	        stage('MVN COMPILE') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+
+        stage('MVN SONARQUBE') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
+ 	stage('MVN package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+
     }
 }
